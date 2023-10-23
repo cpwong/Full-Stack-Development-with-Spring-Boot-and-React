@@ -34,20 +34,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().cors().and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authorizeRequests()
+        // http.csrf().disable().cors().and()
+        //         .sessionManagement()
+        //         .sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+        //         .authorizeRequests()
 
-                // POST request to /login endpoint not secured
-                .antMatchers(HttpMethod.POST, "/login").permitAll()
+        //         // POST request to /login endpoint not secured
+        //         .antMatchers(HttpMethod.POST, "/login").permitAll()
 
-                // All other requests are secured
-                .anyRequest().authenticated().and()
-                .exceptionHandling()
-                .authenticationEntryPoint(exceptionHandler).and()
-                .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
-
+        //         // All other requests are secured
+        //         .anyRequest().authenticated().and()
+        //         .exceptionHandling()
+        //         .authenticationEntryPoint(exceptionHandler).and()
+        //         .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
+        http.csrf().disable().cors().and().authorizeRequests().anyRequest().permitAll();
     }
 
     @Bean

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
-const APIKEY='78f676e99a91189fe82fc759abccd092';
+const APIKEY='';
 
 function App() {
   const [temp, setTemp] = useState('');
